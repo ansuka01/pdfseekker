@@ -21,9 +21,9 @@ def extract_text_from_pdf(file_path, search_word):
                     start_index = max(0, match.start() - 30)
                     end_index = min(len(text), match.end() + 30)
                     context = text[start_index:end_index]
-                    all_words = re.findall(r'\b\w+\b', text, re.IGNORECASE) #tämä ehkä pois
-                    all_words_str = ' '.join(all_words) #tämä ehkä pois
-                    occurrences.append((file_path, context, all_words_str, total_occurrences)) # Jos otetaan pois niin tästäkin
+                    all_words = re.findall(r'\b\w+\b', text, re.IGNORECASE)
+                    all_words_str = ' '.join(all_words) #???
+                    occurrences.append((file_path, context, all_words_str, total_occurrences)) 
                     logging.info(f"Found occurrence of '{search_word}' in '{file_path}' - Context: {context}")
         except Exception as e:
             logging.error(f"Error processing PDF file '{file_path}': {e}")
